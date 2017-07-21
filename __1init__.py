@@ -83,11 +83,12 @@ class ImportLammps(Operator, ImportHelper):
             materials = {}
 
             for row in file_object:
+         key = row.split()[1]
                 if row.startswith("ITEM:"):
                     key = row.split()[1]
                     stacks[key] = []
                     stacks[key + "_metadata"] = []
-                elif key = row.split()[1]; key == "ATOMS":
+                elif key == "ATOMS":
                     atom_type = str(row.split()[1])
                     if atom_type not in materials:
                         materials[atom_type] = bpy.data.materials.new(
