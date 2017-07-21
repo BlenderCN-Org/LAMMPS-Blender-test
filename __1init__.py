@@ -83,7 +83,6 @@ class ImportLammps(Operator, ImportHelper):
             materials = {}
 
             for row in file_object:
-                key = row.split()[1]
                 if row.startswith("ITEM:"):
                     key = row.split()[1]
                     stacks[key] = []
